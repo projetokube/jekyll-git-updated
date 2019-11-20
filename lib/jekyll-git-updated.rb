@@ -11,7 +11,7 @@ class JekyllPlugin
 
 	def setGitUpdated()
 		if @post.data['title'] and File.file?(@path)
-			@post.data['git-updated'] = `git log -n 1 --pretty=format:%ci "#{@path}"`[0...-6]
+			@post.data['last_modified_at'] = `git log -n 1 --pretty=format:%ci "#{@path}"`[0...-6]
 		end
 	end
 end
